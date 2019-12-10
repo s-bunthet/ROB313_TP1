@@ -43,16 +43,16 @@ function H = homography2d(varargin)
     
     % TODO : Create matrix A
     A = [];
-    N = size(x1,2);
+    N = size(x1, 2);
     for i = 1:N;
        A_i = [];
-       A11 = transpose(zeros(3,1));
-       A12 = (-1)*(x2(3,i))*transpose(x1(:,i)); 
-       A13 = x2(2,i)*transpose(x1(:,i)); 
+       A11 = transpose(zeros(3, 1));
+       A12 = (-1)*(x2(3, i))*transpose(x1(:, i)); 
+       A13 = x2(2, i)*transpose(x1(:, i));
        
        A21 = (-1)*A12;
        A22 = A11;
-       A23 = (-1)*x2(1,i)*transpose(x1(:,i));
+       A23 = (-1)*x2(1, i)*transpose(x1(:, i));
        
        A31 = (-1)*A13;
        A32 = (-1)*A23;
@@ -60,17 +60,16 @@ function H = homography2d(varargin)
        
        
        
-       A_i = [A11 A12 A13; A21 A22 A23;A31 A32 A33];
-       A = [A; A_i];
+       A_i = [A11 A12 A13; A21 A22 A23; A31 A32 A33];
+       A   = [A; A_i];
     end   
     
     % TODO : perform SVD
-    [U,Segma,V] = svd(A);
+    [U, Segma, V] = svd(A);
     
     % TODO : Extract homography from SVD result
-
-    H = V(:,end);
-    H = reshape(H,[3,3]);
+    H = V(:, end);
+    H = reshape(H, [3,3]);
     
     % Denormalise
     H = T2\H*T1;
@@ -82,8 +81,8 @@ function H = homography2d(varargin)
 function [x1, x2] = checkargs(arg);
     
     if length(arg) == 2
-	x1 = arg{1};
-	x2 = arg{2};
+	    x1 = arg{1};
+	    x2 = arg{2};
 	if ~all(size(x1)==size(x2))
 	    error('x1 and x2 must have the same size');
 	elseif size(x1,1) ~= 3
@@ -91,11 +90,11 @@ function [x1, x2] = checkargs(arg);
 	end
 	
     elseif length(arg) == 1
-	if size(arg{1},1) ~= 6
+	if size(arg{1}, 1) ~= 6
 	    error('Single argument x must be 6xN');
 	else
-	    x1 = arg{1}(1:3,:);
-	    x2 = arg{1}(4:6,:);
+	    x1 = arg{1}(1:3, :);
+	    x2 = arg{1}(4:6, :);
 	end
     else
 	error('Wrong number of arguments supplied');
