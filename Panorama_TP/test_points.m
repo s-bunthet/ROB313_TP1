@@ -1,28 +1,18 @@
 
-% display the original images
-img1 = double(imread('Amst-3.jpg'))/255;
-f1 = figure;
-figure(f1);
-imagesc(img1)
+% first version
 
-img2 = double(imread('Amst-2.jpg'))/255;
-f2 = figure;
-figure(f2);
-imagesc(img2)
+% original points
+X1 = [439.67 112.19 1];
+X2 = [499.58 108.32 1];
+X3 = [439.67 215.82 1];
+X4 = [502 216.79 1];
 
-% put the first image in bbox1
-bbox1 = [-900 500 -50 450  ];
-H1 = eye(3);
-img_warped1 = vgg_warp_H(img1, H1, 'linear', bbox1);
+% target points 
+X1_prime = [60.638 111.22 1];
+X2_prime = [122.85 113.15 1];
+X3_prime = [58.534 211.79  1];
+X4_prime = [127.46 213.72  1];
 
-%% display the first warped image
-f3 = figure;
-figure(f3);
-imagesc(img_warped1)
-
-% put the seconde image in bbox2
-
-%% define Pt0 and PtD
 % 4 windows version 
 
 % original points
@@ -37,17 +27,16 @@ X2_prime = [44.653 151.64 1];
 X3_prime = [22.476 185.56 1];
 X4_prime = [43.981 185.56  1];
 
-PtO = [X1' X2' X3' X4'];
-PtD = [X1_prime' X2_prime' X3_prime' X4_prime'];
-H2 = homography2d(PtO, PtD);
-bbox2 = [-900 500 -50 450  ];
-img_warped2 = vgg_warp_H(img2, H2, 'linear', bbox2);
-%% display the first warped image
-f4 = figure;
-figure(f4);
-imagesc(img_warped2)
-% merge the two boxes 
-im_fused = max(img_warped1,img_warped2);
-f5 = figure;
-figure(f5);
-imagesc(im_fused)
+% overlapping version
+
+% original points
+X1 = [376.31 131.53 1];
+X2 = [499.58 109.29 1];
+X3 = [380.91 147.57 1];
+X4 = [499.58 22.257  1];
+
+% target points 
+X1_prime = [0 127.66 1];
+X2_prime = [118.24 111.22 1];
+X3_prime = [0 248.53 1];
+X4_prime = [113.63 243.7  1];
