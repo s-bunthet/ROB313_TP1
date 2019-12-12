@@ -23,19 +23,20 @@ imagesc(img_warped1)
 % put the seconde image in bbox2
 
 %% define Pt0 and PtD
-% 4 windows version 
+
+% 4 windows version (more detailed)
 
 % original points
-X1 = [404.2 154.65 1];
-X2 = [423.69 154.22 1];
-X3 = [404.2 185.99 1];
-X4 = [424.69 186.85  1];
+X1 = [404 153 1];
+X2 = [427 152 1];
+X3 = [404 185 1];
+X4 = [427 185  1];
 
 % target points 
-X1_prime = [23.484 152.07 1];
-X2_prime = [44.653 151.64 1];
-X3_prime = [22.476 185.56 1];
-X4_prime = [43.981 185.56  1];
+X1_prime = [23 151 1];
+X2_prime = [47 151 1];
+X3_prime = [23 184 1];
+X4_prime = [47 184 1];
 
 PtO = [X1' X2' X3' X4'];
 PtD = [X1_prime' X2_prime' X3_prime' X4_prime'];

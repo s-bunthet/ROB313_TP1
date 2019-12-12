@@ -40,3 +40,39 @@ X1_prime = [0 127.66 1];
 X2_prime = [118.24 111.22 1];
 X3_prime = [0 248.53 1];
 X4_prime = [113.63 243.7  1];
+
+
+
+% 4 windows version (new)
+
+% original points
+X1 = [403.63 153.75 1];
+X2 = [423.3 153.52 1];
+X3 = [405.3 185.51 1];
+X4 = [424.55 185.51  1];
+
+% target points 
+X1_prime = [23.644 151.45 1];
+X2_prime = [43.731 152.37 1];
+X3_prime = [23.644 184.36 1];
+X4_prime = [43.731 184.36  1];
+
+
+
+##########
+
+% 4 windows version (more detailed)
+
+% original points
+X1 = [404 153 1];
+X2 = [427 152 1];
+X3 = [404 185 1];
+X4 = [427 185  1];
+
+% target points 
+X1_prime = [23 151 1];
+X2_prime = [47 151 1];
+X3_prime = [23 184 1];
+X4_prime = [47 184 1];
+
+
