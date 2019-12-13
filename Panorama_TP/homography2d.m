@@ -54,16 +54,10 @@ function H = homography2d(varargin)
        A22 = A11;
        A23 = (-1)*x2(1, i)*transpose(x1(:, i));
        
-       A31 = (-1)*A13;
-       A32 = (-1)*A23;
-       A33 = A11;
+       A_i = [A11 A12 A13; A21 A22 A23];
        
-       
-       
-       A_i = [A11 A12 A13; A21 A22 A23; A31 A32 A33];
        A   = [A; A_i];
     end   
-    
     % TODO : perform SVD
     [U, Segma, V] = svd(A);
     
@@ -73,7 +67,7 @@ function H = homography2d(varargin)
     
     % Denormalise
     H = T2\H*T1;
-    
+end
 
 %--------------------------------------------------------------------------
 % Function to check argument values and set defaults
@@ -98,5 +92,6 @@ function [x1, x2] = checkargs(arg);
 	end
     else
 	error('Wrong number of arguments supplied');
-    end
+  end
+end
     

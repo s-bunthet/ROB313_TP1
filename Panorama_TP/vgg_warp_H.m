@@ -47,7 +47,7 @@ if nargin < 4
 end
 
 % Construct bb from bbox_mode
-if isstr(bbox_mode)
+if ischar(bbox_mode)
   switch bbox_mode
   case 'fit'
     % Make bbox big enough to contain H * image_bbox
